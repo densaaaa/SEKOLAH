@@ -1,0 +1,346 @@
+:root {
+    --primary: #00c9ff;
+    --secondary: #ff6b00;
+    --light: #f8faff;
+    --dark: #1a1a1a;
+    --gray: #f0f0f0;
+    --accent: #00c9ff;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --hover-color: #f1f5f9;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --primary-color: #2563eb;
+    --secondary-color: #475569;
+    --background-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Roboto', 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+/* Minimalist Sidebar */
+.sidebar {
+    width: 240px;
+    background-color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.sidebar-logo img {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+}
+
+.sidebar-logo span {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 6px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.sidebar-menu a:hover {
+    background-color: var(--hover-color);
+}
+
+/* .sidebar-menu a.active {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+    font-weight: 600;
+} */
+
+.sidebar-menu a i {
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px;
+}
+
+.main-content h1 {
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Action button */
+.action-button {
+    background-color: #00c9ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.action-button i {
+    margin-right: 8px;
+}
+
+.action-button:hover {
+    background-color: #00c9f3;
+}
+
+/* Search form styles */
+.main-content form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.main-content input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-grow: 1;
+    min-width: 180px;
+    transition: border-color 0.3s;
+}
+
+.main-content input[type="text"]:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 201, 255, 0.2);
+}
+
+.main-content button[type="submit"] {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.main-content button[type="submit"]:hover {
+    background-color: var(--accent);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ffffff;
+}
+
+table th {
+    background-color: #00c9ff;
+    font-weight: 600;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover td {
+    background-color: #f9f9f9;
+}
+
+/* Action buttons in table */
+table td button,
+table td a {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+table td a {
+    background-color: #ff4d4d;
+}
+
+table td button:hover {
+    background-color: var(--accent);
+}
+
+table td a:hover {
+    background-color: #e60000;
+}
+
+/* Popup forms */
+#editForm,
+#tambahPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); */
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+}
+
+#editForm h2,
+#tambahPopup h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#editForm form,
+#tambahPopup form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+#editForm label,
+#tambahPopup label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: -5px;
+}
+
+#editForm input,
+#tambahPopup input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+#editForm input:focus,
+#tambahPopup input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 201, 255, 0.2);
+}
+
+#editForm button,
+#tambahPopup button {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+#editForm button[type="submit"],
+#tambahPopup button[type="submit"] {
+    background-color: var(--primary);
+    color: white;
+}
+
+#editForm button[type="submit"]:hover,
+#tambahPopup button[type="submit"]:hover {
+    background-color: var(--accent);
+}
+
+#editForm button[type="button"],
+#tambahPopup button[type="button"] {
+    background-color: #eee;
+    color: #555;
+}
+
+#editForm button[type="button"]:hover,
+#tambahPopup button[type="button"]:hover {
+    background-color: #ddd;
+}
+
+/* Popup form classes */
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+}

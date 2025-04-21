@@ -1,0 +1,474 @@
+:root {
+    --primary: #00c9ff;
+    --secondary: #ff6b00;
+    --light: #f8faff;
+    --dark: #1a1a1a;
+    --gray: #f0f0f0;
+    --accent: #00c9ff;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --hover-color: #f1f5f9;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --primary-color: #2563eb;
+    /* Subtle blue */
+    --secondary-color: #475569;
+    /* Slate gray */
+    --background-color: #ffffff;
+    /* White background */
+    --text-color: #1e293b;
+    /* Dark slate for text */
+    --border-color: #e2e8f0;
+    /* Light gray for borders */
+    --hover-color: #f1f5f9;
+    /* Very light blue for hover states */
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+    --accent-color: #3b82f6;
+    /* Slightly brighter blue for accents */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: var(--light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+/* Minimalist Sidebar */
+.sidebar {
+    width: 240px;
+    background-color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.sidebar-logo img {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+}
+
+.sidebar-logo span {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 6px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.sidebar-menu a:hover {
+    background-color: var(--hover-color);
+}
+
+/* .sidebar-menu a.active {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+    font-weight: 600;
+} */
+
+.sidebar-menu a i {
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px;
+    /* Adjust based on your sidebar width */
+}
+
+.main-content h1 {
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Subject selector styles */
+#mapelSelector {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+    min-width: 250px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#mapelSelector:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(0, 201, 255, 0.2);
+}
+
+label[for="mapelSelector"] {
+    font-weight: 600;
+    color: #444;
+    margin-right: 10px;
+}
+
+/* Add button style */
+#tambahNilaiBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#tambahNilaiBtn i {
+    margin-right: 8px;
+}
+
+#tambahNilaiBtn:hover {
+    background-color: #388e3c;
+}
+
+/* Search form styles */
+.search-box {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-box input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-grow: 1;
+    min-width: 180px;
+    transition: border-color 0.3s;
+}
+
+.search-box input[type="text"]:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 201, 255, 0.2);
+}
+
+.search-box button[type="submit"] {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-box button[type="submit"]:hover {
+    background-color: var(--accent);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ffffff;     /* garis horizontal */
+
+}
+
+table th {
+    background-color: #00c9ff;
+    font-weight: 600;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover td {
+    background-color: #f9f9f9;
+}
+
+/* Action buttons in table */
+table td button,
+table td a {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+table td a {
+    background-color: #f56e20;
+}
+
+table td button:hover {
+    background-color: var(--accent);
+}
+
+table td a:hover {
+    background-color: #f1ae88;
+}
+
+
+/* Responsive table for smaller screens */
+@media screen and (max-width: 992px) {
+    .nilai-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Action buttons in table */
+.nilai-table td button,
+.nilai-table td a {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.nilai-table td a {
+    background-color: #ff4d4d;
+}
+
+.nilai-table td button:hover {
+    background-color: var(--accent);
+}
+
+.nilai-table td a:hover {
+    background-color: #e60000;
+}
+
+/* Popup forms */
+#editForm,
+#tambahForm {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 700px; /* Tambah lebar untuk form horizontal */
+}
+
+#editForm h2,
+#tambahForm h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#editForm form,
+#tambahForm form {
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    flex-wrap: wrap; /* Biar responsif */
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#editForm .form-group,
+#tambahForm .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 45%; /* Dua kolom */
+    min-width: 200px;
+}
+
+#editForm label,
+#tambahForm label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+#editForm input,
+#tambahForm input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+#editForm input:focus,
+#tambahForm input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 201, 255, 0.2);
+}
+
+#editForm .form-actions,
+#tambahForm .form-actions {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 1 1 100%;
+}
+
+#editForm button,
+#tambahForm button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+#editForm button[type="submit"],
+#tambahForm button[type="submit"] {
+    background-color: var(--primary);
+    color: white;
+}
+
+#editForm button[type="submit"]:hover,
+#tambahForm button[type="submit"]:hover {
+    background-color: var(--accent);
+}
+
+#editForm button[type="button"],
+#tambahForm button[type="button"] {
+    background-color: #eee;
+    color: #555;
+}
+
+#editForm button[type="button"]:hover,
+#tambahForm button[type="button"]:hover {
+    background-color: #ddd;
+}
+
+/* Overlay background when popup is active */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .nilai-table {
+        font-size: 14px;
+    }
+
+    .nilai-table th,
+    .nilai-table td {
+        padding: 10px 8px;
+    }
+
+    .nilai-table td button,
+    .nilai-table td a {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    #mapelSelector {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #tambahNilaiBtn {
+        width: 100%;
+    }
+}
