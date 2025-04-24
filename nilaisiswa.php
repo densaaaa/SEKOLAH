@@ -98,9 +98,10 @@ if (!$result) {
             }
         }
         ?>
-    <?php if (empty($result)): ?>
-                    <tr>
-                        <td colspan="8">Tidak ada data yang ditemukan.</td>
+        <?php if (mysqli_num_rows($result) === 0): ?>
+    <p>Tidak ada data yang ditemukan.</p>
+<?php endif; ?>
+
         <!-- Form Pencarian -->
         <form method="GET">
             <input type="text" name="nama" placeholder="Cari berdasarkan nama" value="<?php echo htmlspecialchars($filter_nama); ?>">

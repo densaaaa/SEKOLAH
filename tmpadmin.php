@@ -24,7 +24,8 @@
             <a href="#profil">Profil</a>
             <a href="#programs">Program Keahlian</a>
             <a href="#berita">Berita</a>
-            <a href="nilaisiswa2.php">Nilai</a>
+            <a href="nilaisiswa2.php">Nilai Siswa</a>
+            <a href="nilaiguru2.php">Nilai Guru</a>
             <a href="dashboard.php">Dashboard</a>
         </div>
         <div class="hamburger">

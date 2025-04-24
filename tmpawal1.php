@@ -510,7 +510,7 @@
         </div>
     </footer>
 
-    <script src="js/tmp.js?=v10"></script>
+    <script src="js/tmp1.js"></script>
 </body>
 
 </html>

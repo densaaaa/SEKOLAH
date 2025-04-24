@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Password salah!";
         }
     } else {
-        echo "Username atau NISN/NIP tidak ditemukan!";
+        include 'salah.php';
     }
 }
 ?>

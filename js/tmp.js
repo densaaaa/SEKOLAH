@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hanya jalankan carousel jika elemen-elemennya ada
     if (slides.length > 0 && dots.length > 0) {
         let currentSlide = 0;
-        const slideInterval = 5000;
+        const slideInterval = 1000;
         let slideTimer;
 
         function showSlide(index) {

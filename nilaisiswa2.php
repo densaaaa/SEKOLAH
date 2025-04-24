@@ -61,7 +61,8 @@ if (!$result) {
             <a href="tmpadmin.php #profil">Profil</a>
             <a href="tmpadmin.php #programs">Program Keahlian</a>
             <a href="tmpadmin.php #berita">Berita</a>
-            <a>Nilai</a>
+            <a href="nilaisiswa2.php">Nilai Siswa</a>
+            <a href="nilaiguru2.php">Nilai Guru</a>
             <?php if ($is_logged_in): ?>
                 <a href="dashboard.php">Dashboard</a>
             <?php else: ?>

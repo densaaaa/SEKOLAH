@@ -187,13 +187,16 @@ table {
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 20px;
+    border: none;
 }
 
 table th,
 table td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #eee;
+    border-right: none;
+    border-left: none;
 }
 
 table th {
@@ -206,6 +209,7 @@ table th {
 
 table tr:last-child td {
     border-bottom: none;
+    border-right: none;
 }
 
 table tr:hover td {
@@ -255,6 +259,7 @@ table td a:hover {
     z-index: 1000;
     width: 90%;
     max-width: 500px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 #editForm h2,

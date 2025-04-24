@@ -28,7 +28,7 @@ $result = mysqli_query($db, $query);
     <title>Manajemen Nilai Siswa</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/datanilai.css?=v9">
+    <link rel="stylesheet" href="css/datanilai.css?=v16">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Add jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -72,9 +72,9 @@ $result = mysqli_query($db, $query);
             </div>
 
             <form method="GET" action="" class="search-box">
-                <input type="text" name="searchnama" placeholder="Cari nama" value="<?php echo $searchnama; ?>">
-                <input type="text" name="searchkelas" placeholder="Cari kelas" value="<?php echo $searchkelas; ?>">
-                <input type="text" name="searchmapel_jurusan" placeholder="Cari mata pelajaran" value="<?php echo $searchmapel_jurusan; ?>">
+                <input type="text" name="searchnama" placeholder="Cari Nama" value="<?php echo $searchnama; ?>">
+                <input type="text" name="searchkelas" placeholder="Cari Kelas" value="<?php echo $searchkelas; ?>">
+                <input type="text" name="searchmapel_jurusan" placeholder="Cari Mata elajaran" value="<?php echo $searchmapel_jurusan; ?>">
                 <button type="submit">Cari</button>
             </form>
 

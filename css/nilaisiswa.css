@@ -140,11 +140,10 @@ form {
 }
 
 input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ddd;
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    flex-grow: 1;
-    min-width: 200px;
 }
 
 button[type="submit"] {

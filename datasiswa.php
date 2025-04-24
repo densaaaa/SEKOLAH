@@ -1,3 +1,39 @@
+<?php
+ob_start(); // Start output buffering
+include 'config.php';
+
+// POST processing logic - moved to the beginning of the file
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get values from form
+    $nisn = mysqli_real_escape_string($db, $_POST['nisn']);
+    $nama = mysqli_real_escape_string($db, $_POST['nama']);
+    $kelas = mysqli_real_escape_string($db, $_POST['kelas']);
+
+    // Get original name before update (needed if name is changed)
+    $getOriginalNameQuery = "SELECT nama FROM siswa WHERE nisn = '$nisn'";
+    $originalNameResult = mysqli_query($db, $getOriginalNameQuery);
+    $originalNameRow = mysqli_fetch_assoc($originalNameResult);
+    $originalName = $originalNameRow['nama'];
+
+    // Update siswa table
+    $updateSiswaQuery = "UPDATE siswa SET nama = '$nama', kelas = '$kelas' WHERE nisn = '$nisn'";
+    $resultSiswa = mysqli_query($db, $updateSiswaQuery);
+
+    // Update nisn_to_nama table
+    $updateMappingQuery = "UPDATE nisn_to_nama SET nama = '$nama' WHERE nisn = '$nisn'";
+    $resultMapping = mysqli_query($db, $updateMappingQuery);
+
+    // If name was changed, update nilaisiswa table to reflect the new name
+    if ($originalName != $nama) {
+        $updateNilaiQuery = "UPDATE nilaisiswa SET nama = '$nama' WHERE nama = '$originalName'";
+        mysqli_query($db, $updateNilaiQuery);
+    }
+
+    // Redirect back to student management page
+    header("Location: datasiswa.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +43,7 @@
     <title>Manajemen Siswa</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/datasiswa.css?=v19">
+    <link rel="stylesheet" href="css/datasiswa.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -49,13 +85,33 @@
                     <th>Aksi</th>
                 </tr>
                 <?php
-                include 'config.php';
-
                 // Logika Hapus Data
                 if (isset($_GET['hapus_nisn'])) {
                     $nisnToDelete = mysqli_real_escape_string($db, $_GET['hapus_nisn']);
-                    $deleteQuery = "DELETE FROM siswa WHERE nisn = '$nisnToDelete'";
-                    mysqli_query($db, $deleteQuery);
+
+                    // First get the student's name based on NISN
+                    $getNameQuery = "SELECT nama FROM siswa WHERE nisn = '$nisnToDelete'";
+                    $nameResult = mysqli_query($db, $getNameQuery);
+
+                    if ($nameRow = mysqli_fetch_assoc($nameResult)) {
+                        $studentName = $nameRow['nama'];
+
+                        // Delete records from nilaisiswa table based on the student's name
+                        $deleteNilaiQuery = "DELETE FROM nilaisiswa WHERE nama = '$studentName'";
+                        mysqli_query($db, $deleteNilaiQuery);
+
+                        // Delete record from nisn_to_nama table
+                        $deleteNisnToNamaQuery = "DELETE FROM nisn_to_nama WHERE nisn = '$nisnToDelete'";
+                        mysqli_query($db, $deleteNisnToNamaQuery);
+
+                        // Finally delete the student record
+                        $deleteStudentQuery = "DELETE FROM siswa WHERE nisn = '$nisnToDelete'";
+                        mysqli_query($db, $deleteStudentQuery);
+                        
+                        // Redirect to refresh the page
+                        header("Location: datasiswa.php");
+                        exit();
+                    }
                 }
 
                 // Query pencarian
@@ -84,7 +140,6 @@
         </tr>";
                 }
                 ?>
-
             </table>
         </div>
     </div>
@@ -92,7 +147,7 @@
     <!-- Form Edit Pop-up -->
     <div id="editPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px #000;">
         <h2>Edit Siswa</h2>
-        <form action="edit_siswa.php" method="post">
+        <form action="datasiswa.php" method="post">
             <input type="hidden" name="nisn" id="editNisn">
             <label>Nama:</label>
             <input type="text" name="nama" id="editNama" required><br>
@@ -125,18 +180,23 @@
             document.getElementById('editPopup').style.display = 'block';
         }
 
-        function closePopup() {
-            document.getElementById('editPopup').style.display = 'none';
+        function closePopup(popupId) {
+            // If no popupId is provided, close the edit popup
+            if (!popupId) {
+                document.getElementById('editPopup').style.display = 'none';
+            } else {
+                // Otherwise close the specified popup
+                document.getElementById(popupId).style.display = 'none';
+            }
         }
 
         function tambahSiswa() {
             document.getElementById('tambahPopup').style.display = 'block';
         }
-
-        function closePopup(popupId) {
-            document.getElementById(popupId).style.display = 'none';
-        }
     </script>
 </body>
 
 </html>
+<?php
+ob_end_flush(); // End output buffering
+?>

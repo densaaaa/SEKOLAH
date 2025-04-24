@@ -187,6 +187,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-top: 15px;
         }
 
+        table input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
     </style>
 </head>
 
