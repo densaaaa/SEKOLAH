@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:8887
--- Generation Time: Apr 22, 2025 at 02:32 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: 127.0.0.1:8877
+-- Waktu pembuatan: 09 Jun 2025 pada 11.46
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -33,16 +33,17 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`user`, `password`) VALUES
-('admin01', '$2y$10$C7oLDJooSmzGYbQ3lxRWZOYlVCxkNcbdNwG6.BSvRWKcCDACzlQ6u');
+('admin01', '$2y$10$C7oLDJooSmzGYbQ3lxRWZOYlVCxkNcbdNwG6.BSvRWKcCDACzlQ6u'),
+('admin02', '$2y$10$i8YmmlXtAcWuIIzYw6P2w.vsPZifWPpxnLs7d0HW5nNKJS98sxN6.');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `guru`
+-- Struktur dari tabel `guru`
 --
 
 CREATE TABLE `guru` (
@@ -54,11 +55,11 @@ CREATE TABLE `guru` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `guru`
+-- Dumping data untuk tabel `guru`
 --
 
 INSERT INTO `guru` (`nip`, `nama`, `mapel`, `password`, `mapel_jurusan`) VALUES
-(1, 'Wang Ling', '', '$2y$10$8MXYdM755QE6P9u10xZ6qe8EwSIN5t/FcMr2LIvDGfqTnGLfJhH.2', 'RPL'),
+(1, 'Wang Ling', '', '$2y$10$8MXYdM755QE6P9u10xZ6qe8EwSIN5t/FcMr2LIvDGfqTnGLfJhH.2', 'DPIB'),
 (2, 'Shi Lan', 'B Indo', '$2y$10$3pLJ5nJi790iqWAQoM8CHeTF5ITslbU0TJodNZpFK9fpFuhvrbGoG', ''),
 (3, 'Wang La', '', '$2y$10$ecmtrjbcEj7naErc5Cdgy.t8zkLzu72d4qFjpDJlsTV5PFt3/0C1O', 'TKJ'),
 (999, 'toni', 'B Indo', '$2y$10$4e.p9XnxlYFotfHUAzdRf.zZFcaMlm2y4qxxMi.sTTaygcMGtu/c6', ''),
@@ -125,12 +126,13 @@ INSERT INTO `guru` (`nip`, `nama`, `mapel`, `password`, `mapel_jurusan`) VALUES
 (8989, 'Cleo', 'B Indo', '493847', ''),
 (9090, 'Dian', 'Olga', '729384', ''),
 (9191, 'Evi', 'B Inggris', '394758', ''),
+(9990, 'AYU', 'b indo', '$2y$10$/6Ca1G6OytZFQad7w/2/f.R63s8wQRkem9ZePqzB5FYKnXmolRqRi', ''),
 (9991, 'Evi', '', '394758', 'TITL');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nilaisiswa`
+-- Struktur dari tabel `nilaisiswa`
 --
 
 CREATE TABLE `nilaisiswa` (
@@ -145,13 +147,14 @@ CREATE TABLE `nilaisiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `nilaisiswa`
+-- Dumping data untuk tabel `nilaisiswa`
 --
 
 INSERT INTO `nilaisiswa` (`nama`, `kelas`, `produktif`, `ipas`, `olga`, `b_indo`, `b_inggris`, `matematika`) VALUES
-('Adianto Sulaiman', 'X-2 SIJA', '78', 83, 49, 70, 76, 68),
+('Adianto Sulaiman', 'X-2 SIJA', '78', 83, 70, 70, 76, 68),
 ('Andreas Tian', 'X-2 TKP', '48', 74, 52, 74, 64, 57),
 ('Angga Yongki', 'XII-3 TITL', '62', 59, 51, 65, 66, 64),
+('anis', '', '12', 0, 0, 0, 0, 0),
 ('Ardi Halim', 'XII-2 TKR', '90', 80, 57, 75, 70, 60),
 ('Bambang Lu', 'XI-1 TPM', '49', 61, 62, 70, 69, 81),
 ('Bani', 'XII SIJA 3', '94', 90, 85, 91, 92, 96),
@@ -177,7 +180,7 @@ INSERT INTO `nilaisiswa` (`nama`, `kelas`, `produktif`, `ipas`, `olga`, `b_indo`
 ('Hendra Wijaya', 'XII-1 TKR', '90', 51, 39, 58, 67, 64),
 ('Heng Sujito', 'XI-3 DGM', '87', 64, 48, 68, 65, 74),
 ('Hengki Subagyo', 'X-2 DKV', '81', 70, 44, 89, 85, 68),
-('Ica', 'X TKR 1', '91', 88, 92, 90, 91, 92),
+('Ica', 'X TKR 1', '', 88, 92, 90, 91, 92),
 ('Iman Kwee', 'XII-3 DPIB', '66', 58, 61, 63, 62, 82),
 ('Jaya', 'XI RPL 3', '99', 93, 86, 89, 91, 95),
 ('Johan Kurniawan', 'XI-2 TKP', '61', 52, 66, 88, 60, 76),
@@ -207,7 +210,7 @@ INSERT INTO `nilaisiswa` (`nama`, `kelas`, `produktif`, `ipas`, `olga`, `b_indo`
 ('Pasha', 'XI DKV 2', '93', 89, 91, 88, 90, 94),
 ('Puti', 'X TKJ 2', '87', 89, 93, 90, 94, 92),
 ('Qais', 'XI TKR 2', '94', 90, 86, 91, 92, 94),
-('Qina', 'X RPL 2', '92', 87, 88, 94, 90, 93),
+('Qina', 'X RPL 2', '12', 87, 88, 94, 90, 93),
 ('Randy Chandra', 'X-2 DPIB', '55', 61, 60, 70, 72, 78),
 ('Rayan', 'XII TKJ 3', '94', 92, 85, 91, 92, 93),
 ('Rima', 'XII SIJA 2', '92', 89, 91, 86, 94, 93),
@@ -253,7 +256,7 @@ INSERT INTO `nilaisiswa` (`nama`, `kelas`, `produktif`, `ipas`, `olga`, `b_indo`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nisn_to_nama`
+-- Struktur dari tabel `nisn_to_nama`
 --
 
 CREATE TABLE `nisn_to_nama` (
@@ -262,10 +265,13 @@ CREATE TABLE `nisn_to_nama` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `nisn_to_nama`
+-- Dumping data untuk tabel `nisn_to_nama`
 --
 
 INSERT INTO `nisn_to_nama` (`nisn`, `nama`) VALUES
+('0009', 'dafa'),
+('0011', 'anis'),
+('0099', 'denis'),
 ('1', 'toni'),
 ('1234567894', 'Eka'),
 ('1234567896', 'Gigi'),
@@ -353,7 +359,7 @@ INSERT INTO `nisn_to_nama` (`nisn`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siswa`
+-- Struktur dari tabel `siswa`
 --
 
 CREATE TABLE `siswa` (
@@ -364,10 +370,13 @@ CREATE TABLE `siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `siswa`
+-- Dumping data untuk tabel `siswa`
 --
 
 INSERT INTO `siswa` (`nisn`, `nama`, `kelas`, `password`) VALUES
+('0009', 'dafa', 'XI DKV 2', '$2y$10$fMwHW0JL2FxbXn.JzTT2cOFGjlzuzoFdxGXiozX6VudLzlIFI5lfC'),
+('0011', 'anis', 'XI DKV 1', '$2y$10$i7GxYkRvhh1id3nGRSyBCucZCt5XSOAuGuo1dKMB7ZHpCETeKT5jG'),
+('0099', 'denis', 'XI RPL 1', '$2y$10$Rrr4WGj0nbbck0BVaXFHUeljWEOyqp4pXkZgkyFlmTjL0dX6JfhPe'),
 ('1', 'toni', 'XI DPIB 3', '$2y$10$GOnHjB6Tfjl6gfoJpkWX5ODWO4tjDaWzpsL6t8zSx311lwpLbyXHm'),
 ('1234567899', 'Jaya', 'XI RPL 3', '210493'),
 ('1234567900', 'Kamal', 'XII DPIB 2', '549106'),
@@ -452,31 +461,31 @@ INSERT INTO `siswa` (`nisn`, `nama`, `kelas`, `password`) VALUES
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`user`);
 
 --
--- Indexes for table `guru`
+-- Indeks untuk tabel `guru`
 --
 ALTER TABLE `guru`
   ADD PRIMARY KEY (`nip`);
 
 --
--- Indexes for table `nilaisiswa`
+-- Indeks untuk tabel `nilaisiswa`
 --
 ALTER TABLE `nilaisiswa`
   ADD PRIMARY KEY (`nama`);
 
 --
--- Indexes for table `nisn_to_nama`
+-- Indeks untuk tabel `nisn_to_nama`
 --
 ALTER TABLE `nisn_to_nama`
   ADD PRIMARY KEY (`nisn`);
 
 --
--- Indexes for table `siswa`
+-- Indeks untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`nisn`);
